@@ -1,0 +1,100 @@
+no 1
+#!/bin/bash
+
+# Prompt the user to enter employee name, hours worked, and rate per hour
+read -p "Enter employee name: " employee_name
+read -p "Enter hours worked: " hours_worked
+read -p "Enter rate per hour: " rate_per_hour
+
+# Calculate basic pay
+basic_pay=$(( hours_worked * rate_per_hour ))
+
+# Initialize variables for tax and net pay
+tax=0
+net_pay=0
+
+# Use if-else statements to calculate tax based on basic pay
+if [ $basic_pay -gt 70000 ]; then
+    tax=25
+elif [ $basic_pay -ge 15000 ] && [ $basic_pay -le 70000 ]; then
+    tax=15
+else
+    tax=0
+fi
+
+# Calculate tax amount
+tax_amount=$(( (basic_pay * tax) / 100 ))
+
+# Calculate net pay
+net_pay=$(( basic_pay - tax_amount ))
+
+# Display the results
+echo "Employee Name: $employee_name"
+echo "Hours Worked: $hours_worked"
+echo "Rate Per Hour: $rate_per_hour"
+echo "Basic Pay: $basic_pay"
+echo "Tax Rate: $tax%"
+echo "Tax Amount: $tax_amount"
+echo "Net Pay: $net_pay"
+
+
+
+
+
+
+no 2 
+#include <stdio.h>
+#include <stdlib.h>
+#include <fcntl.h>
+#include <unistd.h>
+
+int main() {
+    int fd; // file descriptor
+    char buffer[20]; // buffer to hold read content
+
+    // Open a file called "example.txt" for writing and reading
+    fd = open("example.txt", O_RDWR | O_CREAT, 0644);
+    if (fd == -1) {
+        perror("open");
+        exit(1);
+    }
+
+    // Write "Hello World" to the file
+    if (write(fd, "Hello World",
+
+
+
+
+
+no3
+#!/bin/bash
+
+# Prompt the user to enter CustomerID, CustomerName, and UnitConsumed
+read -p "Enter CustomerID: " customer_id
+read -p "Enter CustomerName: " customer_name
+read -p "Enter UnitConsumed: " unit_consumed
+
+# Initialize variables for charges and surcharges
+charge_per_unit=0
+total_bill=0
+
+# Use if..else statements to calculate charges based on units consumed
+if [ $unit_consumed -lt 200 ]; then
+    charge_per_unit=120
+elif [ $unit_consumed -ge 200 ] && [ $unit_consumed -lt 400 ]; then
+    charge_per_unit=150
+elif [ $unit_consumed -ge 400 ] && [ $unit_consumed -lt 600 ]; then
+    charge_per_unit=180
+else
+    charge_per_unit=200
+fi
+
+# Calculate total bill
+total_bill=$(( unit_consumed * charge_per_unit ))
+
+# Display the calculated bill
+echo "CustomerID: $customer_id"
+echo "CustomerName: $customer_name"
+echo "UnitConsumed: $unit_consumed"
+echo "Charge per unit: Ksh $charge_per_unit"
+echo "Total Bill: Ksh $total_bill"
